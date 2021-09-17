@@ -7,8 +7,7 @@
 
 import Foundation
 
-struct CategoryDisplayModel {
-    let id: Int
+struct CategoryDisplayModel: Hashable {
     let name: String
     var isSelected: Bool = false
 

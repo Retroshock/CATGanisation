@@ -25,7 +25,7 @@ class CatsAPIClient: BaseAPIClient, CatsApi {
                 "page": page,
                 "limit": limit,
                 "order": "asc",
-                "category_ids": filters.map { $0.id.description }.joined(separator: ",")
+                "country_code": filters.map { $0.name }.joined(separator: ",")
             ]
         }
         return call(

@@ -17,6 +17,9 @@ class BreedsViewModel: BaseViewModel {
 
     private let catsService: CatsService = resolve(CatsService.self)
     let dataSource = BehaviorRelay<[BreedDisplayModel]>(value: [])
+    var filters: [CategoryDisplayModel] = []
+    var allFilters: Set<CategoryDisplayModel> = []
+
     private let pageLimit = 10
 
     lazy private var paginationManager: PaginationManager<BreedDisplayModel> = {
@@ -29,13 +32,17 @@ class BreedsViewModel: BaseViewModel {
         )
     }()
 
-    func getBreeds(with filters: [CategoryDisplayModel] = []) -> Single<[BreedDisplayModel]> {
+    func getBreeds() -> Single<[BreedDisplayModel]> {
         catsService.getBreeds(
             page: paginationManager.pageInfo.offset,
             limit: paginationManager.pageInfo.limit, filters: filters
         ).map { [weak self] breeds in
             guard let self = self else { throw Errors.noSelf }
-            return self.mapBreeds(breeds)
+            if !self.filters.isEmpty {
+                return self.mapBreeds(breeds).filter { self.filters.map { $0.name }.contains($0.countryCode) }
+            } else {
+                return self.mapBreeds(breeds)
+            }
         }.do(onSuccess: { [weak self] breeds in
             guard let self = self else { return }
             let oldValues = self.dataSource.value
@@ -58,5 +65,12 @@ class BreedsViewModel: BaseViewModel {
                 wikiLink: URL(string: $0.wikipediaURL ?? "")
             )
         }
+    }
+
+    func didFilter(_ filters: [CategoryDisplayModel]) -> Completable {
+        self.filters = filters
+        paginationManager.reset()
+        dataSource.accept([])
+        return getBreeds().asCompletable()
     }
 }

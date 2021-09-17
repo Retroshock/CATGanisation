@@ -10,7 +10,7 @@ import RxCocoa
 import RxSwift
 
 protocol BreedsCoordinatorProtocol: Coordinator {
-    func showFilters(filterAction: @escaping ([CategoryDisplayModel]) -> Void)
+    func showFilters(allFilters: [CategoryDisplayModel], filterAction: @escaping ([CategoryDisplayModel]) -> Void)
     func showDetails(of breed: BreedDisplayModel)
 }
 
@@ -39,7 +39,7 @@ class BreedsViewController: BaseViewController<BreedsViewModel> {
             forCellReuseIdentifier: BreedTableViewCell.identifier
         )
 
-        viewModel.getBreeds().subscribe { [weak self] breeds in
+        viewModel.getBreeds().observe(on: MainScheduler.instance).subscribe { [weak self] breeds in
             LoaderView.hide()
             self?.observeReachToBottom()
         } onFailure: { [weak self] error in
@@ -104,14 +104,24 @@ class BreedsViewController: BaseViewController<BreedsViewModel> {
     }
 
     @objc private func didPressFilters() {
-        coordinator.showFilters { [weak self] filters in
+        viewModel.allFilters =
+            Set(viewModel.dataSource.value.map { breed in
+                let isFilterSelected = viewModel.filters.map { $0.name }.contains(breed.countryCode)
+                let filter = CategoryDisplayModel(
+                    name: breed.countryCode,
+                    isSelected: isFilterSelected
+                )
+                return filter
+            })
+
+        coordinator.showFilters(allFilters: Array(viewModel.allFilters)) { [weak self] filters in
             guard let self = self else { return }
             LoaderView.show()
-            self.viewModel.getBreeds(with: filters).subscribe(onSuccess: { _ in
+            self.viewModel.didFilter(filters).subscribe {
                 LoaderView.hide()
-            }, onFailure: { _ in
+            } onError: { _ in
                 LoaderView.hide()
-            }).disposed(by: self.disposeBag)
+            }.disposed(by: self.disposeBag)
         }
     }
 

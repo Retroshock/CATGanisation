@@ -32,20 +32,11 @@ class FiltersViewController: BaseViewController<FiltersViewModel> {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        LoaderView.show()
 
         tableView.register(
             FilterCategoryTableViewCell.nib,
             forCellReuseIdentifier: FilterCategoryTableViewCell.identifier
         )
-
-        viewModel.getFilters().subscribe { _ in
-            LoaderView.hide()
-        } onFailure: { [weak self] error in
-            LoaderView.hide()
-            self?.showSimpleAlert(with: error.localizedDescription)
-        }
-        .disposed(by: disposeBag)
 
         viewModel.dataSource.bind(
             to: tableView.rx.items
@@ -63,7 +54,7 @@ class FiltersViewController: BaseViewController<FiltersViewModel> {
         tableView.rx.itemSelected.subscribe(onNext: { [weak self] indexPath in
             guard let self = self else { return }
             let newModel = self.viewModel.dataSource.value.map { oldCategory -> CategoryDisplayModel in
-                if oldCategory.id == self.viewModel.dataSource.value[indexPath.row].id {
+                if oldCategory.name == self.viewModel.dataSource.value[indexPath.row].name {
                     var category = oldCategory
                     category.select()
                     return category

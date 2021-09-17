@@ -88,6 +88,7 @@ class PaginationManager<T> {
     func reset() {
         resetOffset()
         resetTotal()
+        shouldGetMore = true
         isPaginating = false
     }
 
