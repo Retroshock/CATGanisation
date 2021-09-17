@@ -22,15 +22,13 @@ class LoginViewController: BaseViewController<LoginViewModel> {
         case ok
     }
 
-    private weak var delegate: LoginCoordinatorProtocol?
-
     private var coordinator: LoginCoordinatorProtocol {
         coordinatorProtocol as! LoginCoordinatorProtocol
     }
 
     func configure(with viewModel: LoginViewModel, delegate: LoginCoordinatorProtocol) {
         self.viewModel = viewModel
-        self.delegate = delegate
+        self.coordinatorProtocol = delegate
     }
 
     @IBAction private func didPressLogin(_ sender: UIButton) {
@@ -49,6 +47,9 @@ class LoginViewController: BaseViewController<LoginViewModel> {
                 }
             } onFailure: { [weak self] error in
                 LoaderView.hide()
+                // TODO: Remove on proper implementation of login
+                self?.viewModel.authService.isLoggedIn.accept(true)
+                self?.coordinator.didLogin()
 //                self?.showSimpleAlert(with: error.localizedDescription)
             }
             .disposed(by: disposeBag)

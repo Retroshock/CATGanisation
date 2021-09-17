@@ -28,11 +28,11 @@ class AppCoordinator: Coordinator {
         authService.isLoggedIn.distinctUntilChanged().observe(on: MainScheduler.instance)
             .subscribe(onNext: { [weak self] isLoggedIn in
             guard let self = self else { return }
-//            if isLoggedIn {
+            if isLoggedIn { // Should be changed by keychain saved value once login is properly implemented
                 self.showBreeds()
-//            } else {
-//                self.showLogin()
-//            }
+            } else {
+                self.showLogin()
+            }
         }).disposed(by: disposeBag)
     }
 

@@ -25,7 +25,7 @@ class BreedsCoordinator: Coordinator {
         let breedsViewController = instantiateViewController(ofType: BreedsViewController.self, inStoryboard: .breeds) { controller in
             controller.configure(viewModel: BreedsViewModel(), coordinator: self)
         }
-        navigationController.pushViewController(breedsViewController, animated: true)
+        navigationController.setViewControllers([breedsViewController], animated: true)
     }
 
     func finishedChildFlow(flow: Coordinator) {

@@ -97,6 +97,7 @@
 		272FC01026F4EAF000BBE007 /* CategoryResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 272FC00F26F4EAF000BBE007 /* CategoryResponse.swift */; };
 		272FC01326F4ED6800BBE007 /* FilterCategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 272FC01126F4ED6800BBE007 /* FilterCategoryTableViewCell.swift */; };
 		272FC01426F4ED6800BBE007 /* FilterCategoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 272FC01226F4ED6800BBE007 /* FilterCategoryTableViewCell.xib */; };
+		272FC01626F50D5400BBE007 /* BreedsViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 272FC01526F50D5300BBE007 /* BreedsViewModelTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -220,6 +221,7 @@
 		272FC00F26F4EAF000BBE007 /* CategoryResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryResponse.swift; sourceTree = "<group>"; };
 		272FC01126F4ED6800BBE007 /* FilterCategoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterCategoryTableViewCell.swift; sourceTree = "<group>"; };
 		272FC01226F4ED6800BBE007 /* FilterCategoryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FilterCategoryTableViewCell.xib; sourceTree = "<group>"; };
+		272FC01526F50D5300BBE007 /* BreedsViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedsViewModelTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -299,6 +301,7 @@
 			children = (
 				272FBF1E26EE1BC800BBE007 /* CATGanisationTests.swift */,
 				272FBF2026EE1BC800BBE007 /* Info.plist */,
+				272FC01526F50D5300BBE007 /* BreedsViewModelTests.swift */,
 			);
 			path = CATGanisationTests;
 			sourceTree = "<group>";
@@ -839,6 +842,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				272FBF1F26EE1BC800BBE007 /* CATGanisationTests.swift in Sources */,
+				272FC01626F50D5400BBE007 /* BreedsViewModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -35,7 +35,6 @@ class LoginCoordinator: Coordinator {
 
 extension LoginCoordinator: LoginCoordinatorProtocol {
     func didLogin() {
-        // TODO: Show Kitty Dashboard
         endFlow?()
     }
 }

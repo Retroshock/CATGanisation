@@ -18,7 +18,7 @@ class AuthService {
             // TODO: change token in keychain
             self?.isLoggedIn.accept(true)
         }, onError: { [weak self] error in
-            self?.isLoggedIn.accept(true) // Change in the actual implementation
+            self?.isLoggedIn.accept(false)
         })
         .flatMap { [weak self] _ in
             guard let self = self else { return .just(false) }
