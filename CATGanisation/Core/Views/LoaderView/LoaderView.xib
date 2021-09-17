@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="SF-Pro-Text-Regular.otf">
+            <string>SFProText-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LoaderView" customModule="CATGanisation" customModuleProvider="target">
+            <connections>
+                <outlet property="activityIndicator" destination="zpl-GP-nMg" id="00P-JL-D97"/>
+                <outlet property="textLabel" destination="rwe-2u-OGj" id="kcm-Ug-1vC"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="zpl-GP-nMg">
+                    <rect key="frame" x="88" y="52" width="24" height="24"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="24" id="IfM-XG-lJM"/>
+                        <constraint firstAttribute="width" constant="24" id="kR2-RW-R7N"/>
+                    </constraints>
+                    <color key="color" name="lightGreyBlue"/>
+                </activityIndicatorView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loading..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rwe-2u-OGj" userLabel="LOADING">
+                    <rect key="frame" x="60.5" y="88" width="79" height="20"/>
+                    <fontDescription key="fontDescription" name="SFProText-Regular" family="SF Pro Text" pointSize="17"/>
+                    <color key="textColor" name="lightGreyBlue"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="zpl-GP-nMg" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="2Ve-A6-9jB"/>
+                <constraint firstItem="zpl-GP-nMg" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="8" id="D6N-9y-an0"/>
+                <constraint firstItem="rwe-2u-OGj" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="WOZ-68-qQb"/>
+                <constraint firstItem="rwe-2u-OGj" firstAttribute="top" secondItem="zpl-GP-nMg" secondAttribute="bottom" constant="12" id="bDW-dw-oxI"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="rwe-2u-OGj" secondAttribute="bottom" constant="8" id="eBI-38-696"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="137.68115942028987" y="109.82142857142857"/>
+        </view>
+    </objects>
+    <resources>
+        <namedColor name="lightGreyBlue">
+            <color red="0.59999999999999998" green="0.66666666666666663" blue="0.77647058823529413" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>
