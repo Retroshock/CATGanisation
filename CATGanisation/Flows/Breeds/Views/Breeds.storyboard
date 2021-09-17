@@ -154,6 +154,36 @@
             </objects>
             <point key="canvasLocation" x="902.89855072463774" y="45.535714285714285"/>
         </scene>
+        <!--Filters View Controller-->
+        <scene sceneID="Lwd-wG-fFD">
+            <objects>
+                <viewController storyboardIdentifier="FiltersViewController" id="euN-Q1-OtK" customClass="FiltersViewController" customModule="CATGanisation" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="bCK-Zy-tO0">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="kXq-Tk-ehs">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Qix-6s-FKA"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="kXq-Tk-ehs" firstAttribute="top" secondItem="Qix-6s-FKA" secondAttribute="top" id="9B3-rZ-92o"/>
+                            <constraint firstItem="Qix-6s-FKA" firstAttribute="bottom" secondItem="kXq-Tk-ehs" secondAttribute="bottom" id="Ii0-XM-5Zv"/>
+                            <constraint firstItem="Qix-6s-FKA" firstAttribute="trailing" secondItem="kXq-Tk-ehs" secondAttribute="trailing" id="lP8-dJ-nh5"/>
+                            <constraint firstItem="kXq-Tk-ehs" firstAttribute="leading" secondItem="Qix-6s-FKA" secondAttribute="leading" id="mEo-eG-zfP"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="kXq-Tk-ehs" id="yD5-b1-SYv"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="e3N-tn-azE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1636" y="46"/>
+        </scene>
     </scenes>
     <resources>
         <systemColor name="systemBackgroundColor">

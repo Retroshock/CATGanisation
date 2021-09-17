@@ -10,7 +10,7 @@ import RxCocoa
 import RxSwift
 
 protocol BreedsCoordinatorProtocol: Coordinator {
-    func showFilters()
+    func showFilters(filterAction: @escaping ([CategoryDisplayModel]) -> Void)
     func showDetails(of breed: BreedDisplayModel)
 }
 
@@ -67,6 +67,16 @@ class BreedsViewController: BaseViewController<BreedsViewModel> {
         }).disposed(by: disposeBag)
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        addFilterButton()
+    }
+
+    private func addFilterButton() {
+        let filterButton = UIBarButtonItem(title: "Filter", style: .plain, target: self, action: #selector(didPressFilters))
+        navigationItem.rightBarButtonItem = filterButton
+    }
+
     private func observeReachToBottom() {
         tableView.rx.reachedBottom().subscribe(onNext: { [weak self] in
             guard let self = self else { return }
@@ -94,7 +104,15 @@ class BreedsViewController: BaseViewController<BreedsViewModel> {
     }
 
     @objc private func didPressFilters() {
-        coordinator.showFilters()
+        coordinator.showFilters { [weak self] filters in
+            guard let self = self else { return }
+            LoaderView.show()
+            self.viewModel.getBreeds(with: filters).subscribe(onSuccess: { _ in
+                LoaderView.hide()
+            }, onFailure: { _ in
+                LoaderView.hide()
+            }).disposed(by: self.disposeBag)
+        }
     }
 
     private func didPressBreed(_ breed: BreedDisplayModel) {

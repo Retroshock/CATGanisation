@@ -29,10 +29,10 @@ class BreedsViewModel: BaseViewModel {
         )
     }()
 
-    func getBreeds() -> Single<[BreedDisplayModel]> {
+    func getBreeds(with filters: [CategoryDisplayModel] = []) -> Single<[BreedDisplayModel]> {
         catsService.getBreeds(
             page: paginationManager.pageInfo.offset,
-            limit: paginationManager.pageInfo.limit
+            limit: paginationManager.pageInfo.limit, filters: filters
         ).map { [weak self] breeds in
             guard let self = self else { throw Errors.noSelf }
             return self.mapBreeds(breeds)
