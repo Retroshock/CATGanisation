@@ -1,5 +1,5 @@
 //
-//  CategoryDisplayModel.swift
+//  FilterDisplayModel.swift
 //  CATGanisation
 //
 //  Created by Adrian Popovici on 17.09.2021.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct CategoryDisplayModel: Hashable {
+struct FilterDisplayModel: Hashable {
     let name: String
     var isSelected: Bool = false
 

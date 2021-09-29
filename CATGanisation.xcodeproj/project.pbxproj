@@ -93,9 +93,9 @@
 		272FC00826F450D900BBE007 /* BreedDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 272FC00726F450D900BBE007 /* BreedDetailsViewModel.swift */; };
 		272FC00A26F4E4C300BBE007 /* FiltersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 272FC00926F4E4C300BBE007 /* FiltersViewController.swift */; };
 		272FC00C26F4E50700BBE007 /* FiltersViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 272FC00B26F4E50700BBE007 /* FiltersViewModel.swift */; };
-		272FC00E26F4E5D700BBE007 /* CategoryDisplayModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 272FC00D26F4E5D700BBE007 /* CategoryDisplayModel.swift */; };
+		272FC00E26F4E5D700BBE007 /* FilterDisplayModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 272FC00D26F4E5D700BBE007 /* FilterDisplayModel.swift */; };
 		272FC01026F4EAF000BBE007 /* CategoryResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 272FC00F26F4EAF000BBE007 /* CategoryResponse.swift */; };
-		272FC01326F4ED6800BBE007 /* FilterCategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 272FC01126F4ED6800BBE007 /* FilterCategoryTableViewCell.swift */; };
+		272FC01326F4ED6800BBE007 /* FilterCountryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 272FC01126F4ED6800BBE007 /* FilterCountryTableViewCell.swift */; };
 		272FC01426F4ED6800BBE007 /* FilterCategoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 272FC01226F4ED6800BBE007 /* FilterCategoryTableViewCell.xib */; };
 		272FC01626F50D5400BBE007 /* BreedsViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 272FC01526F50D5300BBE007 /* BreedsViewModelTests.swift */; };
 /* End PBXBuildFile section */
@@ -217,9 +217,9 @@
 		272FC00726F450D900BBE007 /* BreedDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedDetailsViewModel.swift; sourceTree = "<group>"; };
 		272FC00926F4E4C300BBE007 /* FiltersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiltersViewController.swift; sourceTree = "<group>"; };
 		272FC00B26F4E50700BBE007 /* FiltersViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiltersViewModel.swift; sourceTree = "<group>"; };
-		272FC00D26F4E5D700BBE007 /* CategoryDisplayModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryDisplayModel.swift; sourceTree = "<group>"; };
+		272FC00D26F4E5D700BBE007 /* FilterDisplayModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterDisplayModel.swift; sourceTree = "<group>"; };
 		272FC00F26F4EAF000BBE007 /* CategoryResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryResponse.swift; sourceTree = "<group>"; };
-		272FC01126F4ED6800BBE007 /* FilterCategoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterCategoryTableViewCell.swift; sourceTree = "<group>"; };
+		272FC01126F4ED6800BBE007 /* FilterCountryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterCountryTableViewCell.swift; sourceTree = "<group>"; };
 		272FC01226F4ED6800BBE007 /* FilterCategoryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FilterCategoryTableViewCell.xib; sourceTree = "<group>"; };
 		272FC01526F50D5300BBE007 /* BreedsViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedsViewModelTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -514,7 +514,7 @@
 			isa = PBXGroup;
 			children = (
 				272FBFA426F083D100BBE007 /* BreedDisplayModel.swift */,
-				272FC00D26F4E5D700BBE007 /* CategoryDisplayModel.swift */,
+				272FC00D26F4E5D700BBE007 /* FilterDisplayModel.swift */,
 			);
 			path = DisplayModels;
 			sourceTree = "<group>";
@@ -524,7 +524,7 @@
 			children = (
 				272FBFAA26F088C600BBE007 /* BreedTableViewCell.swift */,
 				272FBFAB26F088C600BBE007 /* BreedTableViewCell.xib */,
-				272FC01126F4ED6800BBE007 /* FilterCategoryTableViewCell.swift */,
+				272FC01126F4ED6800BBE007 /* FilterCountryTableViewCell.swift */,
 				272FC01226F4ED6800BBE007 /* FilterCategoryTableViewCell.xib */,
 			);
 			path = Cells;
@@ -762,7 +762,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				272FBF9F26F0830600BBE007 /* BreedsViewController.swift in Sources */,
-				272FC01326F4ED6800BBE007 /* FilterCategoryTableViewCell.swift in Sources */,
+				272FC01326F4ED6800BBE007 /* FilterCountryTableViewCell.swift in Sources */,
 				272FBFF426F3CB9900BBE007 /* NFXSettingsController.swift in Sources */,
 				272FBFFC26F3CB9900BBE007 /* NFXProtocol.swift in Sources */,
 				272FBF7B26EF582B00BBE007 /* LoginViewController.swift in Sources */,
@@ -813,7 +813,7 @@
 				272FBFE826F3CB9900BBE007 /* NFXDetailsController_iOS.swift in Sources */,
 				272FBF6126EE342200BBE007 /* BaseAPIClient.swift in Sources */,
 				272FBFFD26F3CB9900BBE007 /* NFXRawBodyDetailsController.swift in Sources */,
-				272FC00E26F4E5D700BBE007 /* CategoryDisplayModel.swift in Sources */,
+				272FC00E26F4E5D700BBE007 /* FilterDisplayModel.swift in Sources */,
 				272FBF4126EE1DF400BBE007 /* BaseViewModel.swift in Sources */,
 				272FBFA526F083D100BBE007 /* BreedDisplayModel.swift in Sources */,
 				272FBF3A26EE1D3A00BBE007 /* ContainerConfiguration.swift in Sources */,

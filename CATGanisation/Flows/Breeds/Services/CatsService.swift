@@ -11,11 +11,7 @@ import RxSwift
 class CatsService {
     let catsApi = resolve(CatsApi.self)
 
-    func getBreeds(page: Int, limit: Int, filters: [CategoryDisplayModel]) -> Single<[BreedResponse]> {
+    func getBreeds(page: Int, limit: Int, filters: [FilterDisplayModel]) -> Single<[BreedResponse]> {
         catsApi.getBreeds(page: page, limit: limit, filters: filters)
-    }
-
-    func getFilterCategories() -> Single<[CategoryResponse]> {
-        catsApi.getCategories()
     }
 }

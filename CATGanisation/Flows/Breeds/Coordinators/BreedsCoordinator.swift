@@ -35,7 +35,7 @@ class BreedsCoordinator: Coordinator {
 }
 
 extension BreedsCoordinator: BreedsCoordinatorProtocol {
-    func showFilters(allFilters: [CategoryDisplayModel], filterAction: @escaping ([CategoryDisplayModel]) -> Void) {
+    func showFilters(allFilters: [FilterDisplayModel], filterAction: @escaping ([FilterDisplayModel]) -> Void) {
         let filtersViewController = instantiateViewController(
             ofType: FiltersViewController.self,
             inStoryboard: .breeds

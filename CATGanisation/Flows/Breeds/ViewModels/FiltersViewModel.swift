@@ -11,9 +11,9 @@ import RxSwift
 
 class FiltersViewModel: BaseViewModel {
     let catsService = resolve(CatsService.self)
-    let dataSource = BehaviorRelay<[CategoryDisplayModel]>(value: [])
+    let dataSource = BehaviorRelay<[FilterDisplayModel]>(value: [])
 
-    init(filters: [CategoryDisplayModel]) {
+    init(filters: [FilterDisplayModel]) {
         self.dataSource.accept(filters)
     }
 }

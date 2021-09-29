@@ -17,8 +17,8 @@ class BreedsViewModel: BaseViewModel {
 
     private let catsService: CatsService = resolve(CatsService.self)
     let dataSource = BehaviorRelay<[BreedDisplayModel]>(value: [])
-    var filters: [CategoryDisplayModel] = []
-    var allFilters: Set<CategoryDisplayModel> = []
+    var filters: [FilterDisplayModel] = []
+    var allFilters: Set<FilterDisplayModel> = []
 
     private let pageLimit = 10
 
@@ -67,7 +67,7 @@ class BreedsViewModel: BaseViewModel {
         }
     }
 
-    func didFilter(_ filters: [CategoryDisplayModel]) -> Completable {
+    func didFilter(_ filters: [FilterDisplayModel]) -> Completable {
         self.filters = filters
         paginationManager.reset()
         dataSource.accept([])

@@ -10,7 +10,7 @@ import RxCocoa
 import RxSwift
 
 protocol BreedsCoordinatorProtocol: Coordinator {
-    func showFilters(allFilters: [CategoryDisplayModel], filterAction: @escaping ([CategoryDisplayModel]) -> Void)
+    func showFilters(allFilters: [FilterDisplayModel], filterAction: @escaping ([FilterDisplayModel]) -> Void)
     func showDetails(of breed: BreedDisplayModel)
 }
 
@@ -108,7 +108,7 @@ class BreedsViewController: BaseViewController<BreedsViewModel> {
         viewModel.allFilters =
             Set(viewModel.dataSource.value.map { breed in
                 let isFilterSelected = viewModel.filters.map { $0.name }.contains(breed.countryCode)
-                let filter = CategoryDisplayModel(
+                let filter = FilterDisplayModel(
                     name: breed.countryCode,
                     isSelected: isFilterSelected
                 )

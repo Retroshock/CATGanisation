@@ -16,10 +16,7 @@ class BreedsViewModelTests: XCTestCase {
         case unknown
     }
     class MockAPIClient: CatsApi {
-        func getCategories() -> Single<[CategoryResponse]> {
-            return .error(MockError.unknown)
-        }
-        func getBreeds(page: Int, limit: Int, filters: [CategoryDisplayModel]) -> Single<[BreedResponse]> {
+        func getBreeds(page: Int, limit: Int, filters: [FilterDisplayModel]) -> Single<[BreedResponse]> {
             return .just([
                 .mockResponse,
                 .mockResponse

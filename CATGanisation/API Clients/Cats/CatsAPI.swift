@@ -9,6 +9,5 @@ import Foundation
 import RxSwift
 
 protocol CatsApi {
-    func getBreeds(page: Int, limit: Int, filters: [CategoryDisplayModel]) -> Single<[BreedResponse]>
-    func getCategories() -> Single<[CategoryResponse]> 
+    func getBreeds(page: Int, limit: Int, filters: [FilterDisplayModel]) -> Single<[BreedResponse]>
 }

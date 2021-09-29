@@ -10,7 +10,7 @@ import Foundation
 import RxSwift
 
 class CatsAPIClient: BaseAPIClient, CatsApi {
-    func getBreeds(page: Int, limit: Int, filters: [CategoryDisplayModel]) -> Single<[BreedResponse]> {
+    func getBreeds(page: Int, limit: Int, filters: [FilterDisplayModel]) -> Single<[BreedResponse]> {
         let parameters: [String: Any]
         if filters.isEmpty {
             parameters = [
